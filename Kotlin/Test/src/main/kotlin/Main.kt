@@ -99,7 +99,7 @@ fun main() {
     var d = 10
     var e = 10
     var f = 10
-    var g = 10
+    var g = 11
 
     // como podemos fazer isso?
 
@@ -112,17 +112,32 @@ fun main() {
     println("Aqui ta pegando o valor e subtraindo que ta dando: $d")
 
     e *= 5
-    println("Aqui ta pegando o valor e subtraindo que ta dando: $d")
+    println("Aqui ta pegando o valor e multiplicando que ta dando: $e")
 
     f /= 5
-    println("Aqui ta pegando o valor e subtraindo que ta dando: $d")
+    println("Aqui ta pegando o valor e dividindo, que ta dando: $f")
 
     g %= 5 // ????
-    println("Aqui ta pegando o valor e subtraindo que ta dando: $d")
+    println("Aqui ta pegando o valor e a sobra da divisão que ta dando: $g")
+
+    println("*********************************************")
+
+    nomeFuncao()
 
     // ao enviar um valor, posso enviar de forma aleatória
     mensagemParabens(idade = 10,nome = "oi")
 
+    println("*********************************************")
+
+    fun soma(a: Int, b: Int):Int{
+        return a + b
+    }
+    soma(23,54)
+    //    fun somaa(aa:Int,b: Int) = aa+b
+    //   Da para fazer desta forma também
+    println("*********************************************")
+
+    // Aqui para baixo é um if normal
     val outraIdade = 18
 
     if (outraIdade >= 18){
@@ -131,6 +146,8 @@ fun main() {
     else{
         println("Menor de idade")
     }
+
+    println("*********************************************")
 
     val nota = 7
 
@@ -144,7 +161,7 @@ fun main() {
         println("Reprovadoooo")
     }
 
-
+    println("*********************************************")
     val idade2 = 12
 
     val status = if (idade2 >=18){
@@ -164,6 +181,7 @@ fun main() {
     println(status)
 
     println("*********************************************")
+    // aqui é como se o if fosse feito em uma linha
     val idade3 = 20
     println(if(idade3 >=18)"Maior" else "Menor")
 
@@ -251,13 +269,127 @@ fun main() {
 //    frutas.add("Limão") // nao funciona
 //    frutas.remove(2) // n funciona
 
+    // Aqui é uma lista que não pode ser alterada
     var frutas = listOf("Banana","Maçã","Laranja")
     println(frutas.size)
     println(frutas.first())
     println(frutas.last())
     println(frutas.contains("Maçã"))
 
-}
+    println("*********************************************")
+
+    // Aqui estamos fazendo uma lista que é multavel
+    var carros = mutableListOf("Corsa","Celta")
+    println(carros.size)
+    println(carros.last()) // celta
+    println(carros.add("Palio"))
+    println(carros.last()) // Palio
+    // O last sempre pega o ultimo elemento
+
+    println("*********************************************")
+
+    // Aqui é uma lista que não pode ser mudada, e não permite repetição
+    val cores = setOf("Azul", "Verde", "Azul")
+    println(cores)
+    //cores.add("Amarelo")
+    //cores.remove("Verde")
+
+    println("*********************************************")
+
+    // Aqui vc cria uma lista que pode mudar mas não permite repetição
+    val cores2 = mutableSetOf("Azul","Verde")
+    cores2.add("Amarelo") // voce só pode adicionar 1 em 1
+    cores2.remove("Azul") // remove oq vc quer
+    println(cores2)
+
+    println("*********************************************")
+    val pessoas = mapOf(
+        "Joao" to 25,
+        "Maria" to 34
+    )
+
+    println("Olha os $pessoas")
+    println(pessoas["Joao"])
+    // não pode ser mudado
+
+    println("*********************************************")
+    // Aqui esta lista ela pode ser mexida
+    val produto = mutableMapOf(
+        "pc" to "Compuador",
+        "cl" to "Celular"
+    )
+
+    println(produto)
+    println(produto["pc"])
+    // Adicionando o elemento
+    produto["ms"] = "mouse"
+    // Remove um elemento
+    produto.remove("cl")
+    println(produto)
+
+    println("*********************************************")
+
+    var i =0
+    while (i<10){
+        println(i)
+        i++
+    }
+
+    println("*********************************************")
+    // Operadores de intervalo
+
+    1 .. 5 // que é do 1 a 5
+
+    // Esse in é uma função de calbeack
+    for (i2 in 1 .. 5){
+        println("\n Aqui mostra a repetição com os operações de intevalo diferentes, como mostra a o resultado $i2")
+    }
+
+    println("*********************************************")
+    1 until 5 // que é do 1 ao 4
+
+    for (i2 in 1 until  5){
+        println("\n Aqui mostra a repetição com os operações de intevalo diferentes, como mostra a o resultado $i2")
+    }
+
+    println("*********************************************")
+    5 downTo 1 // do 5 ao 1
+
+    for (i2 in 5 downTo   1){
+        println("\n Aqui mostra a repetição com os operações de intevalo diferentes, como mostra a o resultado $i2")
+    }
+    println("*********************************************")
+
+    1 .. 10 step 2 // que é 1 ao 10 porém pulando 2 casa
+
+    for (i2 in 1 ..  10 step 2){
+        println("\n Aqui mostra a repetição com os operações de intevalo diferentes, como mostra a o resultado $i2")
+    }
+
+    println("*********************************************")
+    // aqui vc pega o indice de cada coisa cadastrada
+    for(indice in carros.indices){
+        println(indice)
+    }
+
+    println("*********************************************")
+    // Já aqui pego o indice e o que está cadastrado
+    for((indice,carro) in carros.withIndex()){
+        println("O nosso $carro está na posição $indice")
+    }
+
+    println("*********************************************")
+
+    val idade4 = 13
+
+    when (idade4){
+        // aqui o in é para a comparação
+        in 0 ..12 -> println("Criança")
+        in 13 .. 17 -> println("Adolecente")
+        in 18 .. 59 -> println("Adulto")
+        else -> println("idoso")
+    }
+
 }
 
 fun nomeFuncao(){
@@ -268,3 +400,5 @@ fun mensagemParabens(nome: String, idade: Int){
     println("*********************************************")
     println("Parabeis $nome vc tem $idade agora")
 }
+
+
