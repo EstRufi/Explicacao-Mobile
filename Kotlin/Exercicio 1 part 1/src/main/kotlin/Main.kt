@@ -66,7 +66,7 @@ fun main(args: Array<String>) {
     println("********************************************************")
 
     println("Exercicio 11")
-    println(" Faça uma função que receba uma temperatura Celsius (ponto flutuante) e" +
+    println(" Faça uma função que receba uma temperatura Celsius (ponto flutuante) e " +
             "retorne o valor em Fahrenheit (fórmula: F = C x 1.8 + 32)\n")
     exercicio11()
 }
@@ -197,21 +197,39 @@ fun exercicio6(){
 }
 
 fun exercicio7(){
-
+    for(i in 10 downTo 0){
+        println("Contagem: $i")
+        println("------------------------------------")
+    }
 }
 
 fun exercicio8(){
-
+    var numeros = arrayOf(1,2,3,4,5,6,7,8,9,10)
+    println("A soma dos números pares é de: ${numeros.filter { it % 2 == 0 }.sum()}")
 }
 
 fun exercicio9(){
-
+    val valorReceber = 90
+    println("Você me enviou o valor de $valorReceber, o dobro dele será ${valorReceber * 2}")
 }
 
 fun exercicio10(){
+    val nota1 = 7
+    val nota2 = 2
+    val nota3 = 5
 
+    val media = (nota1 + nota2 + nota3) / 3
+
+    println("Vou calcular sua média, mas para você saber: \n" +
+            "nota 1: $nota1 \n" +
+            "nota 2: $nota2\n" +
+            "nota 3: $nota3\n" +
+            "A média então é de: $media")
 }
 
 fun exercicio11(){
+    val valorCelsius = 34.2
+    var conversorFahrenheit = (valorCelsius * 1.8) + 32
 
+    println("Está com $valorCelsius graus Celsius. Convertendo para Fahrenheit dá: $conversorFahrenheit")
 }
