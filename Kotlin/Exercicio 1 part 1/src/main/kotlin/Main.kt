@@ -1,3 +1,5 @@
+import kotlin.concurrent.thread
+
 fun main(args: Array<String>) {
     println("********************************************************")
 
@@ -108,7 +110,7 @@ fun exercicio3(){
     println("A idade que você falou é $idade")
 
     val validarIdade = when(idade){
-        in  0..12 -> "Menor de idade"
+        in  -99..12 -> "Menor de idade"
         in 12 ..17 -> "Adolecente"
         in 18 .. 59 -> "Adulto"
         else -> "Idoso"
@@ -170,21 +172,22 @@ fun exercicio4(){
 }
 
 fun exercicio5(){
-    //  AVISAR PROFESSOR
-
-//    var i = 0
-//    val numeroFinalCalcular = 10
-//    while (i < numeroFinalCalcular){
-//        val numeros = arrayOf(1 .. 10)
-//        println(numeros)
-//
-//        i++
-//    }
+//  AVISAR PROFESSOR
 
     println("------------------------------------")
     var numeros = arrayOf(1,2,3,4,5,6,7,8,9,10)
                     // sum serve para calcular numeros dentro do array
     println(numeros.sum())
+
+    println("------------------------------------")
+
+    val test = (1..5).toList()
+    println(""" Forma diferente de se fazer para dar esse resultado de: ${test.sum()}
+        Professor ensinou da seguinte forma:
+        
+        val test = (1..5).toList()
+        
+    """.trimMargin())
 
 }
 
@@ -193,13 +196,33 @@ fun exercicio6(){
     var numeros = arrayOf(1,2,3,4,5,6,7,8,9,10)
     // max serve para achar o maior numero do array
     // tem o maxOrNull que faz a mesma coisa e verifica se é nulo ou não
+
+    // Se colocar valor negativo ele não funciona
     println(numeros.max())
+
+
+//    println("------------------------------------")
+//    val testNumerico = arrayOf(-1,-2,-3,-4)
+//    var testMaiorNumero = testNumerico[0]
+//
+//    for(numero in testNumerico){
+//        if(testMaiorNumero < numero){
+//            testMaiorNumero = numero
+//        }
+//
+//    }
+//    println(testMaiorNumero)
+
 }
 
 fun exercicio7(){
     for(i in 10 downTo 0){
         println("Contagem: $i")
         println("------------------------------------")
+
+        // Ele serve para dar um delay mas cuidado
+        // ele pode travar servidores
+        //Thread.sleep(1000)
     }
 }
 
@@ -211,6 +234,18 @@ fun exercicio8(){
 fun exercicio9(){
     val valorReceber = 90
     println("Você me enviou o valor de $valorReceber, o dobro dele será ${valorReceber * 2}")
+
+    // em função
+//    fun dobro(numero: Int): Int{
+//        var result = numero * 2
+//
+//        return result
+//    }
+
+    fun dobro(numero:Int) = numero *2
+
+
+    println(dobro(valorReceber))
 }
 
 fun exercicio10(){
@@ -225,6 +260,15 @@ fun exercicio10(){
             "nota 2: $nota2\n" +
             "nota 3: $nota3\n" +
             "A média então é de: $media")
+
+    // em função
+
+    fun mediaEscolar(nota4: Int,nota5: Int,nota6: Int) = (nota4 +nota5 +nota6) /3
+
+    println(mediaEscolar(nota1,nota2,nota3))
+
+    // tem como formatar( tirar as casas decimais) em 2 utilizando
+    // String.format("%.2f", media ) a media é para o format saber de onde deve-se tirar as casas
 }
 
 fun exercicio11(){
@@ -232,4 +276,10 @@ fun exercicio11(){
     var conversorFahrenheit = (valorCelsius * 1.8) + 32
 
     println("Está com $valorCelsius graus Celsius. Convertendo para Fahrenheit dá: $conversorFahrenheit")
+
+    //Em função
+
+    fun conversorFahrenheitFun (celsius:Double): Double = (celsius * 1.8) + 32
+
+    println(conversorFahrenheitFun(valorCelsius))
 }

@@ -390,6 +390,30 @@ fun main() {
         else -> println("idoso")
     }
 
+    println("*********************************************")
+    val numbers = (1 .. 10).toList()
+
+    val pares = numbers.filter { numero2 -> numero2 % 2 == 0 }
+    println(pares)
+
+    // Funciona para palavras tbm
+    val numberss = arrayOf("a","a","b")
+
+    // o it ele guarda os parametros dentro dele
+
+    val paress = numberss.filter { it == "a" }
+    println(paress)
+
+    println("*********************************************")
+    // O map serve para fazer algo com oq recebeu na lista e retornar oq pediu
+    val dobro = numbers.map { numeroCalculado -> numeroCalculado * 2 }
+    println(dobro)
+
+    println("*********************************************")
+    // ele reduz oq vc pede
+    // no primeiro parametro passa o primeiro elemento depois o resultado da primeira execução aparece no acumulador, já no segundo parametro está o numero do Array
+    val soma = numbers.reduce {acumulador,numero -> acumulador + numero}
+    println(soma)
 }
 
 fun nomeFuncao(){
