@@ -413,7 +413,7 @@ fun main() {
     println("*********************************************")
     // ele reduz oq vc pede
     // no primeiro parametro passa o primeiro elemento depois o resultado da primeira execução aparece no acumulador, já no segundo parametro está o numero do Array
-    val soma = numbers.reduce {acumulador,numero -> acumulador + numero}
+    val soma = numbers.reduce {acumulador,numero -> acumulador / numero}
     println(soma)
 
     println("*********************************************")
