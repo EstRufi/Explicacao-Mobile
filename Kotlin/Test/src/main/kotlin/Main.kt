@@ -1,5 +1,6 @@
-// fun = função
-// Sempre começa com main na hora de executar
+import model.Carro
+import model.CarroTunado
+
 fun main() {
     // para printar no terminal vc usa print ou println
     println("Hello World!!!!!!")
@@ -414,6 +415,39 @@ fun main() {
     // no primeiro parametro passa o primeiro elemento depois o resultado da primeira execução aparece no acumulador, já no segundo parametro está o numero do Array
     val soma = numbers.reduce {acumulador,numero -> acumulador + numero}
     println(soma)
+
+    println("*********************************************")
+
+    val encadeamento = numbers.filter{ numero -> numero % 2 == 0 }
+        .map{numero -> numero * 2}
+        .reduce{a,b -> a+ b}
+
+    println(encadeamento)
+
+    println("**********BRINCANDO COM CLASSES**************")
+    val carrinho = Carro()
+    val carrinho2 = Carro()
+//   val carrinho = Carro("Celta",1996)
+//   val carrinho2 = Carro("Veloster",2011,3)
+    carrinho.modelo = "fusca"
+    carrinho.ano = 1994
+    carrinho2.portas = 3
+    carrinho.rodar(23.6)
+
+    println(carrinho)
+    // para podermos ver oq tem dentro da classe precisamos chamar a instancia tbm usando "."
+    println(carrinho.modelo)
+    println(carrinho.ano)
+    println(carrinho.portas)
+    println(carrinho2.portas)
+    println(carrinho.consultarKm())
+
+    println("**********HERANÇA DE CLASSES**************")
+    val carroTunado = CarroTunado()
+    carroTunado.modelo = "silvia"
+    carroTunado.ano = 1999
+    carroTunado.ranking = 's'
+    carroTunado.acelerar()
 }
 
 fun nomeFuncao(){
